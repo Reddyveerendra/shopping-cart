@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+}
+
+.nav {
+  display: flex;
+  padding: 3%;
+  padding-bottom: 1%;
+  padding-top: 1%;
+  font-size: larger;
+  justify-content: space-between;
+  background-color: #111827;
+  color: aliceblue;
+}
+.features {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 50vh;
+}
+ul {
+  list-style: none;
+}
+.cart {
+  background-image: url(./Image/shopping-cart.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  height: 144%;
+  color: #000000;
+}
+li:hover {
+  color: #bef264;
+}
+.cart:hover {
+  color: red;
+}
+.logo:hover {
+  color: #bef264;
+}
