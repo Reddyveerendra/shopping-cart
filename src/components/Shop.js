@@ -1,9 +1,16 @@
+import { data } from "./data"
+import { Card } from "./Card";
 export const Shop = () => {
+    let div = [];
+    for (let i = 0; i < 8; i++) {
+        div.push(<Card
+            {...data[i]}
+            num={i}
+        />)
+    }
     return (
         <div className="shop">
-            <img src="https://sneharatnani.github.io/shopping-cart/static/media/img1.9d621a9755fae516641b.jpg" alt="Nike Zoom Fly 4 Premium" />
-            <h3>Nike Zoom Fly 4 Premium</h3>
-            <h3>₹11599</h3>
+            {div}
         </div>
     )
 }
