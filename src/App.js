@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import './App.css';
 import { Nav } from './components/Nav';
@@ -8,33 +9,48 @@ import { data } from './components/data';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, json } from "react-router-dom";
 function App() {
-  const [itemsData, serItemsData] = useState({ ...data })
-  const [itemData, setItemData] = useState({})
+  const [itemsData, setItemsData] = useState({ ...data })
+  const [noOfItems, setNoOfItems] = useState(0);
   let [list, setList] = useState([]);
+  function getInfo(e) {
+    let dataId = e.target.id;
+    window.localStorage.setItem("itemData", JSON.stringify({ ...itemsData[parseInt(dataId)] }))
+    console.log(itemsData[parseInt(dataId)])
+  }
   function addItem(e) {
     e.preventDefault()
     let dataId = e.target.id;
-    window.localStorage.setItem("itemData", JSON.stringify(...itemData[dataId]))
-    console.log(localStorage)
-  }
-  function getInfo(e) {
-    e.preventDefault()
-    let dataId = e.target.id;
-    setList((prev) => { return [...prev, dataId] })
+    setList((prev) => {
+      if (!prev) {
+        return [parseInt(dataId)]
+      }
+      return [...prev, parseInt(dataId)]
+    })
   }
   useEffect(() => {
-    if (JSON.parse(window.localStorage.getItem("list")).length > list.length) {
-      setList(JSON.parse(window.localStorage.getItem("list")));
+    if (!window.localStorage.getItem("list") && !list) {
+      console.log("hi")
+    }
+    else if (!list.length) {
+      setList(JSON.parse(window.localStorage.getItem("list")))
     }
     else {
       window.localStorage.setItem("list", JSON.stringify(list))
     }
-    console.log(localStorage)
+    setNoOfItems(() => {
+      if (!list) {
+        return 0
+      }
+      else {
+        return list.length
+      }
+    })
+    console.log(noOfItems)
   }, [list])
   return (
     <BrowserRouter>
       <div className='App'>
-        <Nav />
+        <Nav num={noOfItems} />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/shop' element={<Shop function={getInfo} />} />

@@ -1,4 +1,4 @@
-export const Nav = () => {
+export const Nav = (props) => {
     return (
         <div className="nav">
             <div className="logo">
@@ -8,7 +8,7 @@ export const Nav = () => {
                 <ul className="features">
                     <li><a href="/">Home</a></li>
                     <li><a href="/shop">Shop</a></li>
-                    <li className="cart"><a href="/cart">1</a></li>
+                    <li className="cart"><a href="/cart">{props.num}</a></li>
                 </ul>
             </div>
         </div>
