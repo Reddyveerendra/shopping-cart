@@ -8,8 +8,7 @@ import { Item } from './components/Item';
 import { data } from './components/data';
 import { Cart } from './components/Cart';
 import { useState, useEffect } from 'react';
-import { Route, Routes, json } from "react-router-dom";
-import BrowserRouter from 'react-router-dom/BrowserRouter'
+import { BrowserRouter, Route, Routes, json } from "react-router-dom";
 import React from 'react';
 function App() {
   const [itemsData, setItemsData] = useState({ ...data })
