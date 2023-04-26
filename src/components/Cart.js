@@ -54,6 +54,11 @@ export const Cart = () => {
         })
         window.localStorage.setItem("list", JSON.stringify(list))
     }
+    function checkout() {
+        alert("Thank You For Ordering")
+        window.localStorage.setItem("list", JSON.stringify([]))
+        window.location.reload(true);
+    }
     return (
         <div className="cartCollection">
             {cartData[0].orders > 0 ? (<div className="cartCollectionItem" ><CartItem {...cartData[0]} add={add} sub={sub} id={0} /><hr /></div>) : ""}
@@ -64,7 +69,7 @@ export const Cart = () => {
             {cartData[5].orders > 0 ? (<div className="cartCollectionItem"><CartItem {...cartData[5]} add={add} sub={sub} id={5} /><hr /></div>) : ""}
             {cartData[6].orders > 0 ? (<div className="cartCollectionItem"><CartItem {...cartData[6]} add={add} sub={sub} id={6} /><hr /></div>) : ""}
             {cartData[7].orders > 0 ? (<div className="cartCollectionItem"><CartItem {...cartData[7]} add={add} sub={sub} id={7} /><hr /></div>) : ""}
-            <button className="checkout">Proceed To Buy ({list.length} items)</button>
+            <button className="checkout" onClick={checkout}>Proceed To Buy ({list.length} items)</button>
         </div>
     )
 }
