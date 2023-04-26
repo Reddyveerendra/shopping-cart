@@ -34,7 +34,7 @@ export const Cart = () => {
             return { ...prev }
         }
         )
-        console.log(list)
+        window.localStorage.setItem("list", JSON.stringify(list))
     }
     function sub(e) {
         const i = parseInt(e.target.id)
@@ -53,18 +53,19 @@ export const Cart = () => {
             prev[i].orders = prev[i].orders - 1
             return { ...prev }
         })
-        console.log(list)
+        window.localStorage.setItem("list", JSON.stringify(list))
     }
     return (
         <div className="cartCollection">
-            {cartData[0].orders > 0 ? (<div className="cartItem" id="0"><CartItem {...cartData[0]} add={add} sub={sub} id={0} /></div>) : ""}
-            {cartData[1].orders > 0 ? (<div className="cartItem"><CartItem {...cartData[1]} add={add} sub={sub} id={1} /></div>) : ""}
-            {cartData[2].orders > 0 ? (<div className="cartItem"><CartItem {...cartData[2]} add={add} sub={sub} id={2} /></div>) : ""}
-            {cartData[3].orders > 0 ? (<div className="cartItem"><CartItem {...cartData[3]} add={add} sub={sub} id={3} /></div>) : ""}
-            {cartData[4].orders > 0 ? (<div className="cartItem"><CartItem {...cartData[4]} add={add} sub={sub} id={4} /></div>) : ""}
-            {cartData[5].orders > 0 ? (<div className="cartItem"><CartItem {...cartData[5]} add={add} sub={sub} id={5} /></div>) : ""}
-            {cartData[6].orders > 0 ? (<div className="cartItem"><CartItem {...cartData[6]} add={add} sub={sub} id={6} /></div>) : ""}
-            {cartData[7].orders > 0 ? (<div className="cartItem"><CartItem {...cartData[7]} add={add} sub={sub} id={7} /></div>) : ""}
+            {cartData[0].orders > 0 ? (<div className="cartCollectionItem" ><CartItem {...cartData[0]} add={add} sub={sub} id={0} /><hr /></div>) : ""}
+            {cartData[1].orders > 0 ? (<div className="cartCollectionItem"><CartItem {...cartData[1]} add={add} sub={sub} id={1} /><hr /></div>) : ""}
+            {cartData[2].orders > 0 ? (<div className="cartCollectionItem"><CartItem {...cartData[2]} add={add} sub={sub} id={2} /><hr /></div>) : ""}
+            {cartData[3].orders > 0 ? (<div className="cartCollectionItem"><CartItem {...cartData[3]} add={add} sub={sub} id={3} /><hr /></div>) : ""}
+            {cartData[4].orders > 0 ? (<div className="cartCollectionItem"><CartItem {...cartData[4]} add={add} sub={sub} id={4} /><hr /></div>) : ""}
+            {cartData[5].orders > 0 ? (<div className="cartCollectionItem"><CartItem {...cartData[5]} add={add} sub={sub} id={5} /><hr /></div>) : ""}
+            {cartData[6].orders > 0 ? (<div className="cartCollectionItem"><CartItem {...cartData[6]} add={add} sub={sub} id={6} /><hr /></div>) : ""}
+            {cartData[7].orders > 0 ? (<div className="cartCollectionItem"><CartItem {...cartData[7]} add={add} sub={sub} id={7} /><hr /></div>) : ""}
+            <button className="checkout">Proceed To Buy ({list.length} items)</button>
         </div>
     )
 }
