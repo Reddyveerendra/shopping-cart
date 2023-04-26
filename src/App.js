@@ -6,6 +6,7 @@ import { Home } from './components/Home';
 import { Shop } from './components/Shop';
 import { Item } from './components/Item';
 import { data } from './components/data';
+import { Cart } from './components/Cart';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes, json } from "react-router-dom";
 function App() {
@@ -45,7 +46,6 @@ function App() {
         return list.length
       }
     })
-    console.log(noOfItems)
   }, [list])
   return (
     <BrowserRouter>
@@ -54,6 +54,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/shop' element={<Shop function={getInfo} />} />
+          <Route path='/cart' element={<Cart />} />
           <Route path='/item' element={<Item {...JSON.parse(window.localStorage.getItem("itemData"))} function={addItem} />} />
         </Routes>
       </div>
