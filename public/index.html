@@ -12,5 +12,11 @@
 <body>
   <div id="root"></div>
 </body>
+<script>
+  if (!window.localStorage.getItem("list")) {
+    window.localStorage.setItem("list", "[]")
+  }
+
+</script>
 
 </html>

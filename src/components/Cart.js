@@ -23,7 +23,6 @@ export const Cart = () => {
         console.log("list.end")
     }, [list])
     function add(e) {
-        console.log(e.target.id)
         const i = parseInt(e.target.id)
         setList(prev => {
             prev.push(i)

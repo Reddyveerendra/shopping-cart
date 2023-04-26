@@ -1,5 +1,4 @@
 export const Card = (props) => {
-    console.log(props)
     return (
         <a href={'/item'} onClick={props.function}>
             <div className="card" id={props.num} onClick={props.function}>
