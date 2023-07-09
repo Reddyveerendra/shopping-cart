@@ -49,18 +49,17 @@ function App() {
     })
   }, [list])
   return (
-    <BrowserRouter>
-      <div className='App'>
+    <div className='App'>
+      <BrowserRouter>
         <Nav num={noOfItems} />
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/*' element={<Home />} />
           <Route path='/shop' element={<Shop function={getInfo} />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/item' element={<Item {...JSON.parse(window.localStorage.getItem("itemData"))} function={addItem} />} />
         </Routes>
-      </div>
-    </BrowserRouter>
-
+      </BrowserRouter>
+    </div>
   );
 }
 
