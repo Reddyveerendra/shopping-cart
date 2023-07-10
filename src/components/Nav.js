@@ -8,8 +8,8 @@ export const Nav = (props) => {
             <div>
                 <ul className="features">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/shop">Shop</a></li>
-                    <li className="cart"><a href="/cart" className="cart">{props.num}</a></li>
+                    <li><a href="/shopping-cart/shop">Shop</a></li>
+                    <li className="cart"><a href="/shopping-cart/cart" className="cart">{props.num}</a></li>
                 </ul>
             </div>
         </div>

@@ -54,9 +54,9 @@ function App() {
         <Nav num={noOfItems} />
         <Routes>
           <Route path='/*' element={<Home />} />
-          <Route path='/shop' element={<Shop function={getInfo} />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/item' element={<Item {...JSON.parse(window.localStorage.getItem("itemData"))} function={addItem} />} />
+          <Route path='/shopping-cart/shop' element={<Shop function={getInfo} />} />
+          <Route path='/shopping-cart/cart' element={<Cart />} />
+          <Route path='/shopping-cart/item' element={<Item {...JSON.parse(window.localStorage.getItem("itemData"))} function={addItem} />} />
         </Routes>
       </BrowserRouter>
     </div>
