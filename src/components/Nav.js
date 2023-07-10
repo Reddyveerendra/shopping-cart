@@ -3,7 +3,7 @@ export const Nav = (props) => {
     return (
         <div className="nav">
             <div className="logo">
-                <a href="/">ShoppingCart</a>
+                <a href="/shopping-cart">ShoppingCart</a>
             </div>
             <div>
                 <ul className="features">
